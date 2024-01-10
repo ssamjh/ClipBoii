@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  clipboii:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./python:/app
+    ports:
+      - "23156:23156"
+    restart: unless-stopped
+    container_name: clipboii

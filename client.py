@@ -43,13 +43,20 @@ def load_config():
 def ask_config_details():
     global HOST, PORT, USER, COPY_KEYBIND, PASTE_KEYBIND
 
-    HOST = input("Enter host:")
-    PORT = int(input("Enter port:"))
-    USER = input("Enter user name:")
-    COPY_KEYBIND = input("Enter copy keybind:")
-    PASTE_KEYBIND = input("Enter paste keybind:")
-
+    HOST = input("Enter host: ")
+    # If the user just presses enter, default value 23156 will be set
+    PORT = input("Enter port (default is 23156): ")
+    PORT = 23156 if PORT == "" else int(PORT)
+    USER = input("Enter user name: ")
+    # If the user just presses enter, default value 'ctrl+{' will be set
+    COPY_KEYBIND = input("Enter copy keybind (default is 'ctrl+{'): ")
+    COPY_KEYBIND = 'ctrl+{' if COPY_KEYBIND == "" else COPY_KEYBIND
+    # If the user just presses enter, default value 'ctrl+}' will be set
+    PASTE_KEYBIND = input("Enter paste keybind (default is 'ctrl+}'): ")
+    PASTE_KEYBIND = 'ctrl+}' if PASTE_KEYBIND == "" else PASTE_KEYBIND
+    
     save_config()
+
 
 # Function to save config details
 
